@@ -12,6 +12,7 @@ function Form (){
     const handleSubmit =(e)=>{
         e.preventDefault();
         changeRef() 
+        
         validInputData(inputRef.current.value)   
     }
     
