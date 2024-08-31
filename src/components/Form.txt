@@ -1,0 +1,46 @@
+
+//custom hooks 
+import useForm from '@customHooks/useFormRef.js'
+import { useState } from 'react';
+
+function Form (){
+    const {inputRef,changeRef} =useForm();
+
+
+    // formulario controlados : ventajas validacion mas comoda de formularios pero es mas lento
+    const [query ,setQuery] =useState("");
+
+
+    const handleChange =(e)=>{
+        setQuery(e.target.value)
+    }
+    
+
+    //formultario no controlados
+    
+  /*
+       const handleClick =()=>{
+        changeRef()    
+    }
+  const handleSubmit =(e)=>{
+        e.preventDefault()
+        const data = new FormData(e.target);
+        console.log(data.get("inptSearchMovie"));
+         
+
+        const fields = Object.fromEntries(new FormData(e.target));
+        console.log(fields);
+    } */
+
+    return (
+        
+        <form >
+            <input  onChange={handleChange} ref={inputRef} type="text" name='inptSearchMovie' placeholder="Avengers , Star Wars , The Matrix ..." />
+            <button  type='submit'>Search</button>
+        </form>
+        
+    )
+}
+
+
+export default Form ;
